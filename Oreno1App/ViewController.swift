@@ -34,7 +34,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
     }
     //    検索キーワードの値をもとに画像を引っ張ってくる
         func getImages(keyword:String){
-            let url = "https://pixabay.com/api/?key=2963093-768f9ffc11d874c5a568a82ee&q=\(keyword)"
+            let text = "https://pixabay.com/api/?key=2963093-768f9ffc11d874c5a568a82ee&q=\(keyword)"
+            let url = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     //        Alamofireを使ってhttpリストを投げます。
             Alamofire.request(url, method: .get,parameters: nil, encoding:JSONEncoding.default).responseJSON{(response) in
                 switch response.result{
