@@ -32,6 +32,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
         }
         getImages(keyword: "baseball")
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchTextField.text = ""
+        commentTextView.text = ""
+    }
     //    検索キーワードの値をもとに画像を引っ張ってくる
         func getImages(keyword:String){
             let text = "https://pixabay.com/api/?key=2963093-768f9ffc11d874c5a568a82ee&q=\(keyword)"
